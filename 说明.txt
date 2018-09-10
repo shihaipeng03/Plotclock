@@ -1,0 +1,30 @@
+最新内容请看 https://create.arduino.cc/editor/wjd76/5be251d2-fdca-4d17-bdba-b01d44f89617/preview
+2018.9
+
+____________________________________________________
+
+
+libraries/下的  DS3231_TEST 和 TIME  文件夹是程序用到的两个库文件，
+放到入 C:\Program Files\Arduino\libraries\   复制后需要启动Arduino编译环境
+
+先运行plotclock调试摆臂程序，调整好摆臂的位置后，将调整好的参数复制到主程序运行
+
+2014.12.20
+
+____________________________________________________
+
+如果你对Arduino了解的还不够多，可以学习一下先。
+
+非常不错的 Arduino 学习课程
+实用技能 - 网易云课堂 
+http://study.163.com/find.htm#/find/search?p=arduino
+
+极客工坊-Arduino精华 - Powered by Discuz!
+http://www.geek-workshop.com/portal.php?mod=list&catid=1
+
+——————————————————————————————————————————————————————
+
+如果你对小贱钟安装有所疑惑，可以参考如下视频 
+
+Plotclock小贱钟安装调试—在线播放—优酷网，视频高清在线观看
+http://v.youku.com/v_show/id_XNzI2MDU3NDYw.html

@@ -1,0 +1,5 @@
+时钟模块是带电池的时钟芯片，arduino从时钟模块读取时间后用小贱钟书写当前时间。
+
+DS3231时钟芯片 高精度时钟模块 IIC模块 存储模块 Arduino-淘宝网
+http://item.taobao.com/item.htm?spm=a230r.1.14.172.P2yDjH&id=40445714850&ns=1&abbucket=19#detail
+
