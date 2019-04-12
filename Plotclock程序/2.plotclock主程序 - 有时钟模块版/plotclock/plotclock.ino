@@ -1,31 +1,25 @@
 //淘宝『有名称的店铺』更新时间 20141126
 
-
-//↓↓↓↓↓↓↓  以下参数在调试程序中调节好后复制过来   ↓↓↓↓↓↓↓
-
-//1.先调节0、180度的位置。调节到位后，再调节90度位置
 //左右悬臂舵机的 0或180度位置,，数字增加，左侧舵机逆时针调整，右侧舵机顺时针调整
 //【此数值可能需要调节】
-#define SERVOLEFTNULL 2030  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVOLEFTNULL 2000  //数值减小，顺时针旋转，加大则逆时针旋转
 //【此数值可能需要调节】
-#define SERVORIGHTNULL 1010  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVORIGHTNULL 1020  //数值减小，顺时针旋转，加大则逆时针旋转
 
 //2.调节到位0、180，再调节下面参数
 //左右悬臂舵机的90度位置,，数字增加，左侧舵机顺时针调整，右侧舵机逆时针调整
 //【此数值可能需要调节】
-#define SERVOFAKTORLEFT 600 //数值加大，顺时针旋转，减小则逆时针旋转
+#define SERVOFAKTORLEFT 670 //数值加大，顺时针旋转，减小则逆时针旋转
 //【此数值可能需要调节】
-#define SERVOFAKTORRIGHT 605  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVOFAKTORRIGHT 680  //数值减小，顺时针旋转，加大则逆时针旋转
 
 
 //升举舵机的3个角度 
 //【此数值可能需要调节】
-#define LIFT0 2000 //落笔写字 on drawing surface
-#define LIFT1 1900  //写字时抬臂动作 between numbers
-#define LIFT2 1650  //高抬笔架  going towards sweeper 
+#define LIFT0 1450 //落笔写字 on drawing surface
+#define LIFT1 1350  //写字时抬臂动作 between numbers 
+#define LIFT2 1200  //高抬笔架  going towards sweeper 
 //【此数值可能需要调节】
-
-
 
 
 //
@@ -33,7 +27,7 @@
 //
 
 //笔擦的坐标位置，如不能对准笔擦可以微调单位毫米
-int  rubberx=72,rubbery=46;   //【此数值可能需要调节】
+int  rubberx=73,rubbery=50;   //【此数值可能需要调节】
 
 //三只舵机的接口号
 #define SERVOPINLIFT  2 //抬臂舵机
@@ -81,10 +75,10 @@ void setup()
 { 
   Wire.begin();
   //第一次运行 请设置时间，设置成功后请删除此行代码,或者如下格式注释掉
-//  Clock.setMinute(11);//设置分钟 
-//  Clock.setHour(23);  //设置小时 
-  //Clock.setMinute(59);  
-  //Clock.setHour(11);
+// Clock.setMinute(36);//设置分钟 
+  //Clock.setHour(1);  //设置小时 
+ // Clock.setMinute(48);  
+//  Clock.setHour(18);
   //第一次运行 请设置时间，设置成功后请删除此行代码
   
   servo1.attach(SERVOPINLIFT);  //初始化抬臂舵机  lifting servo
@@ -255,7 +249,7 @@ void number(float bx, float by, int num, float scale) {
     drawTo(2, 20);
     drawTo(60, rubbery);
 
-    drawTo(rubberx + 3 , rubbery);
+    drawTo(rubberx + 1 , rubbery);
     lift(2);
 
     break;
@@ -417,7 +411,7 @@ void set_XY(double Tx, double Ty)
   a2 = return_angle(L1, L2, c);
 
     servo2.writeMicroseconds(floor(((a2 + a1 - M_PI) * SERVOFAKTORLEFT) + SERVOLEFTNULL));
-
+    delayMicroseconds(LIFTSPEED);
   // calculate joinr arm point for triangle of the right servo arm
   a2 = return_angle(L2, L1, c);
   Hx = Tx + L3 * cos((a1 - a2 + 0.621) + M_PI); //36,5掳
@@ -431,8 +425,8 @@ void set_XY(double Tx, double Ty)
   a1 = atan2(dy, dx);
   a2 = return_angle(L1, (L2 - L3), c);
 
-   servo3.writeMicroseconds(floor(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));
-
+    servo3.writeMicroseconds(floor(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));
+    delayMicroseconds(LIFTSPEED);
 }
 
 

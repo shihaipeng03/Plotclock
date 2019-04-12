@@ -1,28 +1,26 @@
-//普通版和3D版小贱钟调试程序 plotclockadj ，以用来调整摆臂的正确位置。
-//更新日期 2014/11/26 
+//淘宝『有名称的店铺』更新时间 20141126
 
-//↓↓↓↓↓↓↓  调试成功后，将以下代码复制到主程序   ↓↓↓↓↓↓↓
 
 //1.先调节0、180度的位置。调节到位后，再调节90度位置
 //左右悬臂舵机的 0或180度位置,，数字增加，左侧舵机逆时针调整，右侧舵机顺时针调整
 //【此数值可能需要调节】
-#define SERVOLEFTNULL 2030  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVOLEFTNULL 2000  //数值减小，顺时针旋转，加大则逆时针旋转
 //【此数值可能需要调节】
-#define SERVORIGHTNULL 1010  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVORIGHTNULL 1020  //数值减小，顺时针旋转，加大则逆时针旋转
 
 //2.调节到位0、180，再调节下面参数
 //左右悬臂舵机的90度位置,，数字增加，左侧舵机顺时针调整，右侧舵机逆时针调整
 //【此数值可能需要调节】
-#define SERVOFAKTORLEFT 600 //数值加大，顺时针旋转，减小则逆时针旋转
+#define SERVOFAKTORLEFT 670 //数值加大，顺时针旋转，减小则逆时针旋转
 //【此数值可能需要调节】
-#define SERVOFAKTORRIGHT 605  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVOFAKTORRIGHT 680  //数值减小，顺时针旋转，加大则逆时针旋转
 
 
 //升举舵机的3个角度 
 //【此数值可能需要调节】
-#define LIFT0 2000 //落笔写字 on drawing surface
-#define LIFT1 2100  //写字时抬臂动作 between numbers
-#define LIFT2 2200  //高抬笔架  going towards sweeper 
+#define LIFT0 1500 //落笔写字 on drawing surface
+#define LIFT1 1400  //写字时抬臂动作 between numbers 
+#define LIFT2 1250  //高抬笔架  going towards sweeper 
 //【此数值可能需要调节】
 
 
