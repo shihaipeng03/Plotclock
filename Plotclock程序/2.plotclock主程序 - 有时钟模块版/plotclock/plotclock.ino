@@ -75,8 +75,8 @@ void setup()
 { 
   Wire.begin();
   //第一次运行 请设置时间，设置成功后请删除此行代码,或者如下格式注释掉
-// Clock.setMinute(36);//设置分钟 
-  //Clock.setHour(1);  //设置小时 
+ Clock.setMinute(5);//设置分钟 
+  Clock.setHour(9);  //设置小时 
  // Clock.setMinute(48);  
 //  Clock.setHour(18);
   //第一次运行 请设置时间，设置成功后请删除此行代码
@@ -428,9 +428,3 @@ void set_XY(double Tx, double Ty)
     servo3.writeMicroseconds(floor(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));
     delayMicroseconds(LIFTSPEED);
 }
-
-
-
-
-
-

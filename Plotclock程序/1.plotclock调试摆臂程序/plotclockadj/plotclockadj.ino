@@ -387,9 +387,3 @@ void set_XY(double Tx, double Ty)
    servo3.writeMicroseconds(floor(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));
 
 }
-
-
-
-
-
-

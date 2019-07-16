@@ -1,6 +1,12 @@
 最新内容请看 https://create.arduino.cc/editor/wjd76/5be251d2-fdca-4d17-bdba-b01d44f89617/preview
 2018.9
 
+增加了视频教程 小贱钟Plotclock的安装傻瓜教程和程序讲解 
+https://www.ixigua.com/i6713939566358692356/
+还有相关学习视频也已陆续上架，欢迎围观
+2019.7
+
+————————————————————————————————————
 百度云链接： https://pan.baidu.com/s/1hY9putEP7HipFr8aNcpFKA 
 Plotclock小贱钟写字机器人 光盘资料（A盘资料）  解压密码：gsagdafdsa
 
@@ -31,7 +37,3 @@ http://www.geek-workshop.com/portal.php?mod=list&catid=1
 
 ——————————————————————————————————————————————————————
 
-如果你对小贱钟安装有所疑惑，可以参考如下视频 
-
-Plotclock小贱钟安装调试—在线播放—优酷网，视频高清在线观看
-http://v.youku.com/v_show/id_XNzI2MDU3NDYw.html
