@@ -1,4 +1,14 @@
-//淘宝『有名称的店铺』更新时间 20141126
+//淘宝『有名称的店铺』https://somebodys.taobao.com/
+//更新日期 2019/07/13
+
+//视频教程：小贱钟的安装程序 https://www.ixigua.com/i6713939566358692356/
+//最新制作了web版编译器的使用教程视频，还有更多视频内容正在上传请关注我们的西瓜视频 https://www.ixigua.com/i6713192503262052871/
+
+//https://create.arduino.cc/editor/wjd76/30f046de-337f-45ae-ba1e-f39a50179be3/preview 
+//最新增加了一个可以写字母的程序，高手可以研究。
+
+//如果需要运行调试摆臂的程序，打开此代码，如果需要运行主程序，请注释掉下一行代码↓↓↓↓↓↓↓
+//#define CALIBRATION 
 
 //↓↓↓↓↓↓↓  以下参数在调试程序中调节好后复制过来   ↓↓↓↓↓↓↓
 
@@ -417,9 +427,3 @@ void set_XY(double Tx, double Ty)
    servo3.writeMicroseconds(floor(((a1 - a2) * SERVOFAKTORRIGHT) + SERVORIGHTNULL));
 
 }
-
-
-
-
-
-

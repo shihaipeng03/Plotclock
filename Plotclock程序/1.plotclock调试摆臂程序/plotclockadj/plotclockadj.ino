@@ -1,54 +1,61 @@
-//淘宝『有名称的店铺』更新时间 20141126
+//淘宝『有名称的店铺』https://somebodys.taobao.com/
+//更新日期 2019/07/13
 
+//视频教程：小贱钟的安装程序 https://www.ixigua.com/i6713939566358692356/
+//最新制作了web版编译器的使用教程视频，还有更多视频内容正在上传请关注我们的西瓜视频 https://www.ixigua.com/i6713192503262052871/
+
+//https://create.arduino.cc/editor/wjd76/30f046de-337f-45ae-ba1e-f39a50179be3/preview 
+//最新增加了一个可以写字母的程序，高手可以研究。
+
+//如果需要运行调试摆臂的程序，打开此代码，如果需要运行主程序，请注释掉下一行代码↓↓↓↓↓↓↓
+//#define CALIBRATION 
+//不知道define如何使用的，请继续运行此程序。
+//↓↓↓↓↓↓↓  调试成功后，将以下代码复制到主程序   ↓↓↓↓↓↓↓
 
 //1.先调节0、180度的位置。调节到位后，再调节90度位置
 //左右悬臂舵机的 0或180度位置,，数字增加，左侧舵机逆时针调整，右侧舵机顺时针调整
 //【此数值可能需要调节】
 #define SERVOLEFTNULL 2000  //数值减小，顺时针旋转，加大则逆时针旋转
 //【此数值可能需要调节】
-#define SERVORIGHTNULL 1020  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVORIGHTNULL 1000  //数值减小，顺时针旋转，加大则逆时针旋转
 
 //2.调节到位0、180，再调节下面参数
 //左右悬臂舵机的90度位置,，数字增加，左侧舵机顺时针调整，右侧舵机逆时针调整
 //【此数值可能需要调节】
-#define SERVOFAKTORLEFT 670 //数值加大，顺时针旋转，减小则逆时针旋转
+#define SERVOFAKTORLEFT 650 //数值加大，顺时针旋转，减小则逆时针旋转
 //【此数值可能需要调节】
-#define SERVOFAKTORRIGHT 680  //数值减小，顺时针旋转，加大则逆时针旋转
+#define SERVOFAKTORRIGHT 650  //数值减小，顺时针旋转，加大则逆时针旋转
 
 
-//升举舵机的3个角度 
+//升举抬臂舵机的3个角度 
 //【此数值可能需要调节】
-#define LIFT0 1500 //落笔写字 on drawing surface
-#define LIFT1 1400  //写字时抬臂动作 between numbers 
-#define LIFT2 1250  //高抬笔架  going towards sweeper 
+#define LIFT0 1800  //落笔写字 on drawing surface
+#define LIFT1 1700  //写字时抬臂动作 between numbers
+#define LIFT2 1550  //高抬笔架  going towards sweeper 
 //【此数值可能需要调节】
-
 
 //
 //↑↑↑↑↑↑↑↑↑↑↑↑调试成功后，将以上代码复制到主程序 ↑↑↑↑↑↑↑↑↑↑↑↑
 //
-
 
 //三只舵机的接口
 #define SERVOPINLIFT  2 //抬臂舵机
 #define SERVOPINLEFT  3 //左臂舵机
 #define SERVOPINRIGHT 4 //右臂舵机
 
-// 速度  数字越小越慢，太快了容易抖 1000~2000
+//速度  数字越小越慢，太快了容易抖 1000~2000
 #define LIFTSPEED 1500 
 
-// 悬臂的长度，根据图纸测量，无需改变
+//悬臂的长度，根据图纸测量，无需改变
 #define L1 35
 #define L2 57.2
 #define L3 14.2
 
-// 左右舵机轴心的位置，根据图纸测量，无需改变
+//左右舵机轴心的位置，根据图纸测量，无需改变
 #define O1X 22
 #define O1Y -25
 #define O2X 47
 #define O2Y -25
-
-
 
 
 #include <Servo.h>
@@ -77,23 +84,21 @@ void setup()
 
 void loop() 
 { 
-
-
-
+/*
   // Servohorns will have 90掳 between movements, parallel to x and y axis
   drawTo(-3, 29.2);
   delay(1000);
   
   drawTo(74.1, 28);
-  delay(1000);
+  delay(1000);*/
 //*/
-/*
+
   //如需调节抬臂高度，可以去掉注释，编译运行下面代码。
  //每个角度停留1秒钟，观察角度位置，调整LIFT0~2 三个参数
   lift(2);//高抬笔架
-  delay(800);
+  delay(1000);
   lift(1);//写字时抬臂动作
-  delay(900);
+  delay(1000);
   lift(0);//落笔写字
   delay(1000);
   
@@ -243,7 +248,7 @@ void lift(char lift) {
       while (servoLift >= LIFT0) 
       {
         servoLift--;
-        servo1.writeMicroseconds(servoLift);				
+        servo1.writeMicroseconds(servoLift);        
         delayMicroseconds(LIFTSPEED);
       }
     } 
@@ -292,7 +297,7 @@ void lift(char lift) {
     else {
       while (servoLift <= LIFT2) {
         servoLift++;
-        servo1.writeMicroseconds(servoLift);				
+        servo1.writeMicroseconds(servoLift);        
         delayMicroseconds(LIFTSPEED);
       }
     }
