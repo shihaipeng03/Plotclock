@@ -63,8 +63,7 @@ int  rubberx=72,rubbery=42;   //【此数值可能需要调节】
 #define O2Y -25
 
 
-//需要的库函数 ,如果编译报告 time.h 错误请参考readme文档
-#include <Time.h> // see http://playground.arduino.cc/Code/time 
+
 #include <Servo.h>
 
 int servoLift = LIFT2;
@@ -77,12 +76,12 @@ volatile double lastX = rubberx;
 volatile double lastY = rubbery;
 
 int last_min = 0;
+long reference_hour,reference_minutes,reference_sec; //起始的基准时间
 
 void setup() 
 { 
-  // 设置一个模拟时间，（小时，分钟，后面全填0）
-  //如果此句编译错误，请将文件包内的libraries库放到Arduino文件夹内，具体操作办法见说明文档
-   setTime(19,38,0,0,0,0); 
+  //设置起始时间，（小时，分钟，秒）
+  settime(12,34,0);  //每次通电后从12:34 开始计时
 
  /* servo1.attach(SERVOPINLIFT);  //初始化抬臂舵机  lifting servo
   servo2.attach(SERVOPINLEFT);  //初始化左臂舵机  left servo
@@ -109,28 +108,28 @@ int i = 0;
 
     lift(0);
 
-    hour();
-    while ((i+1)*10 <= hour())
+    get_hour();
+    while ((i+1)*10 <= get_hour())
     {
       i++;
     }
 
     number(3, 3, 111, 1);
     number(5, 25, i, 0.9);
-    number(19, 25, (hour()-i*10), 0.9);
+    number(19, 25, (get_hour()-i*10), 0.9);
     number(28, 25, 11, 0.9);
 
     i=0;
-    while ((i+1)*10 <= minute())
+    while ((i+1)*10 <= get_minute())
     {
       i++;
     }
     number(34, 25, i, 0.9);
-    number(48, 25, (minute()-i*10), 0.9);
+    number(48, 25, (get_minute()-i*10), 0.9);
     lift(2);
     drawTo(70, 44);
     lift(1);
-    last_min = minute();
+    last_min = get_minute();
 
     servo1.detach();
     servo2.detach();
@@ -139,6 +138,37 @@ int i = 0;
 
 
 } 
+
+//设置起始时间（小时，分钟，秒）
+void settime(int ih,int im,int is) {
+  reference_hour=ih % 24; //求余数 防止溢出
+  reference_minutes=im % 60;
+  reference_sec = is % 60;
+}
+
+//获得修正后的小时数
+ long get_hour(){
+   long sec = get_seconds();
+   long ho = sec / 3600;
+  ho = ho % 24;  //24或12小时制
+  return(ho);
+}
+
+//获得修正后的分钟数
+ long get_minute(){
+    long sec = get_seconds();
+    long mi = sec / 60 ;
+    mi = mi % 60;
+ return( mi) ;
+}
+
+//获得Arduino的启动时长 + 修正时间
+ long  get_seconds(){
+   long se = millis()/1000; 
+  se = se +reference_sec + reference_minutes*60 + reference_hour*3600; 
+ return(se);
+}
+
 
 // Writing numeral with bx by being the bottom left originpoint. Scale 1 equals a 20 mm high font.
 // The structure follows this principle: move to first startpoint of the numeral, lift down, draw numeral, lift up
