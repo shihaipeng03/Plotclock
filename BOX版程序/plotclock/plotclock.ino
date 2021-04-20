@@ -8,7 +8,7 @@
 
 
 // 调试完毕后可以删除以下两行代码，或者注释掉 调试模式，改为正常运行模式
-//#define CALIBRATION      // 调试模式（调试摆臂的位置）删除或注释掉此行进入 正常运行模式（正常书写时间）
+#define CALIBRATION      // 调试模式（调试摆臂的位置）删除或注释掉此行进入 正常运行模式（正常书写时间）
 
 
 
@@ -48,7 +48,7 @@ int  rubberx=82,rubbery=48;   //【此数值可能需要调节】
 #define SERVOPINRIGHT 4 //右臂舵机
 
 //速度  数字越大越稳“贱” 太小了容易抖动 单位微妙 1000微妙=1毫秒
-#define LIFTSPEED 10000 
+#define LIFTSPEED 2000 
 
 //摆臂的长度，根据图纸测量，无需改变
 #define L1 35
@@ -472,8 +472,8 @@ void set_XY(double Tx, double Ty)
 
   // calculate joinr arm point for triangle of the right servo arm
   a2 = return_angle(L2, L1, c);
-  Hx = Tx + L3 * cos((a1 - a2 + 0.621) + M_PI); //36,5掳
-  Hy = Ty + L3 * sin((a1 - a2 + 0.621) + M_PI);
+  Hx = Tx + L3 * cos((a1 - a2 + 0.45937) + M_PI); //36,5掳  更正 原版是 35.5°，不是 36,5掳，新版修改后是26.32°
+  Hy = Ty + L3 * sin((a1 - a2 + 0.45937) + M_PI); //感谢武汉网友 自由华莱士 的鼎力帮助，特此鸣谢
 
   // calculate triangle between pen joint, servoRight and arm joint
   dx = Hx - O2X;
