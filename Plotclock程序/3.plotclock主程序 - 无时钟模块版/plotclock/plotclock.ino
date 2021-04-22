@@ -1,8 +1,8 @@
 //淘宝『有名称的店铺』https://somebodys.taobao.com/
 //更新日期 2019/07/13
 
-//视频教程：小贱钟的安装程序 https://www.ixigua.com/i6713939566358692356/
-//最新制作了web版编译器的使用教程视频，还有更多视频内容正在上传请关注我们的西瓜视频 https://www.ixigua.com/i6713192503262052871/
+//视频教程：小贱钟的安装程序 https://www.bilibili.com/video/BV1Et411J7vD/
+//最新制作了web版编译器的使用教程视频，还有更多视频内容正在上传请关注我们的B站 https://space.bilibili.com/30602531
 
 //https://create.arduino.cc/editor/wjd76/30f046de-337f-45ae-ba1e-f39a50179be3/preview 
 //最新增加了一个可以写字母的程序，高手可以研究。
